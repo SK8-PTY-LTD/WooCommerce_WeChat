@@ -1,0 +1,65 @@
+<template name="list">
+
+  <!--if-->
+  <view class="list" wx:if="{{whatFor==='customer_service'?'contact':''}}">
+    <view>
+      <contact-button style='float:left; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 50rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 100rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 150rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 200rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 250rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 300rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 350rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 400rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 450rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 500rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 550rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 600rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 650rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 700rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 750rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 800rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 850rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 900rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 950rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+      <contact-button style='opacity:0; position:absolute; left: 1000rpx; height: 100.77rpx; line-height: 100.77rpx;'> </contact-button>
+    </view>
+
+    <view class="list-text">{{text}}</view>
+    <view class="arrow-wrap">
+      <image src="images/accessory.png" class="list-arrow"></image>
+    </view>
+  </view>
+
+  <!--else-->
+  <view wx:else class="list" hover-class="none" data-tip="{{tip}}" data-url="{{url}}" catchtap='navigateTo'>
+    <view class="list-icon-wrap">
+      <image src="{{icon}}" class="list-icon"></image>
+    </view>
+    <view class="list-text">{{text}}</view>
+    <view class="arrow-wrap">
+      <image src="images/accessory.png" class="list-arrow"></image>
+    </view>
+  </view>
+
+  <view hidden="{{!cut?true:false}}" style="height: 23.44rpx;"></view>
+</template>
+
+<scroll-view scroll-y="trues" class="user">
+  <view class="info">
+    <view class="info-wrap">
+      <image class="info-icon" src="{{userInfo.avatar_urls[24]}}" catchtap="navigateTo" data-url-type="userinfo"></image>
+      <view class="info-name">{{userInfo.name}}</view>
+    </view>
+  </view>
+
+  <template wx:if="{{hasLoggedIn}}" is="list" data="{{...order}}"></template>
+  <template wx:if="{{hasLoggedIn}}" wx:for="{{list}}" is="list" data="{{...item}}"></template>
+
+  <view wx:if="{{!hasLoggedIn}}">
+    <text style='display: flex;  justify-content: center;'>↑</text>
+    <text style='display: flex;  justify-content: center;'>\n点此登录</text>
+  </view>
+
+</scroll-view>

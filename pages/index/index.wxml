@@ -1,0 +1,63 @@
+<import src="../../templates/common-list.wxml" />
+
+<view class="index-header" style="display:{{displaySwiper}}">
+  <swiper class="index-swiper" indicator-dots="true" interval="10000" autoplay="true" indicator-color="rgba(255, 255, 255, .2)" indicator-active-color="rgba(255, 255, 255, .7)">
+    <block wx:key="id" wx:for="{{postsShowSwiperList}}">
+      <swiper-item id="{{item.id}}" index="{{index}}" data-redicttype="{{item.type}}" data-appid="{{item.appid}}" data-url="{{item.url}}" bindtap="redictAppDetail">
+        <image mode="aspectFill" src="{{item.content_first_image}}" style="width:100%" />
+        <view class="swiper-mask"></view>
+        <view class="swiper-desc">
+          <text>{{item.post_title}}</text>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class="showerror" style="display:{{showerror}}">
+  <image src="../../images/cry80.png" style="height:100rpx;width:100rpx"></image>
+  <view class="errortext">
+    暂时无法访问网络,下拉重试...
+  </view>
+</view>
+<view style="display:{{showallDisplay}}">
+
+  <view style="display:{{floatDisplay}}">
+    <form catchsubmit="formSubmit" catchreset="formReset" id="search-form">
+    </form>
+  </view>
+
+  <swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000" indicator-color="rgba(0,0,0,.1)" indicator-active-color="#ff4d61">
+    <block wx:for="{{images}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="flex-row" style="display: flex" class="line1">
+    <button type="primary" class="circle" bindtap="goCategory" data-information="{{categories[0]}}">{{categories[0].name}}</button>
+    <button type="primary" class="circle" bindtap="goCategory" data-information="{{categories[1]}}">{{categories[1].name}}</button>
+    <button type="primary" class="circle" bindtap="goCategory" data-information="{{categories[2]}}">{{categories[2].name}}</button>
+    <button type="primary" class="circle" bindtap="goCategory" data-information="{{categories[3]}}">{{categories[3].name}}</button>
+  </view>
+  <view class="flex-row" style="display: flex" class="line2">
+    <button type="primary" class="circle" bindtap="goCategory" data-information="{{categories[4]}}">{{categories[4].name}}</button>
+    <button type="primary" class="circle" bindtap="goCategory" data-information="{{categories[5]}}">{{categories[5].name}}</button>
+    <button type="primary" class="circle" bindtap="goCategory" data-information="{{categories[6]}}">{{categories[6].name}}</button>
+    <button type="primary" class="circle" bindtap="goCategory" data-information="{{categories[7]}}">{{categories[7].name}}</button>
+  </view>
+
+  <view class="container">
+    <!-- 加载图文列表 -->
+    <view class="index-container">
+      <template is="tempCommonList" data="{{postsList}}" />
+    </view>
+  </view>
+
+  <view class="parent">
+    <block class="parent" wx:for="{{featuredProducts}}">
+      <image class="child" src="{{item.images[0].src}}" bindtap='goDetail' data-information="{{item}}"></image>
+    </block>
+  </view>
+
+</view>

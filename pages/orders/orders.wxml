@@ -1,0 +1,61 @@
+<template name="toast">
+  <view class="{{toastClass}}">{{toastMessage}}</view>
+</template>
+<template name="order-cell">
+  <view class="order-cell">
+    <view class="cell-status">
+      {{statusChinese}}
+    </view>
+    <navigator url="../order-detail/order-detail?subOrderSn={{sub_order_sn}}" hover-class="none" class="cell-item">
+
+      <!--只有一个物品的时候多显示一些-->
+      <view class="{{line_items.length===1?'':'hide'}}">
+        <image class="good-thumb" src="{{line_items[0].image}}" alt="item" />
+        <view class="item-content">
+          <view class="content-name">{{line_items[0].name}}</view>
+          <view class="content-count">￥{{line_items[0].total}} </view>
+          <view class="content-amount">×{{line_items[0].quantity}}</view>
+        </view>
+      </view>
+
+      <!--大于一个的时候有拉动条-->
+      <scroll-view scroll-x="true" class="{{line_items.length===1?'hide':''}}">
+        <view style="display:inline-block;" wx:for="{{line_items}}">
+          <image class="good-thumb" src="{{item.image}}"></image>
+        </view>
+      </scroll-view>
+    </navigator>
+
+    <view class="cell-count">
+      <view class="count-amount">共{{line_items.length}}件商品</view>
+      <view class="count-price">￥{{total}}</view>
+      <view class="count-carriage">运费：
+        <text>￥{{shipping_total}}</text>
+      </view>
+    </view>
+    <view class="cell-btn" hidden="{{order.isButtonShow}}">
+      <button class="btn-order btn-solid-red" wx:if="{{ status === 'pending' }}" bindtap="payOrder" data-orderID="{{id}}">去支付</button>
+      <button class="btn-order btn-hollow-gray" wx:if="{{ status === 'pending' }}" bindtap="cancelOrder" data-orderID="{{id}}">取消订单</button>
+      <button class="btn-order btn-hollow-gray" wx:if="{{ status === 'completed'}}" bindtap="drawbackOrder" data-orderID="{{id}}">申请退款</button>
+      <button class="btn-order btn-solid-red" wx:if="{{status === 'processing' }}" bindtap="confirmOrder" data-orderID="{{id}}">确认收货</button>
+    </view>
+  </view>
+</template>
+
+<view class="orders-wrap" hidden="{{loading}}">
+  <scroll-view scroll-y="true" class="orders">
+    <view class="order-list {{orderList.length===0?'hide':''}}">
+      <block wx:for="{{orderList}}">
+        <template is="order-cell" data="{{...item}}"></template>
+      </block>
+    </view>
+    <view class="empty {{orderList.length===0?'':'hide'}}">
+      <image class="empty-img" src="images/empty.png"></image>
+      <view>您还没有相关的订单</view>
+      <view>可以去看看有哪些想买的</view>
+      <navigator open-type="switchTab" url="../home/home" hover-class="none" class="btn-to-home btn-solid-red">随便逛逛</navigator>
+    </view>
+  </scroll-view>
+  <template is="toast" data="{{...toast}}" />
+</view>
+<loading hidden="{{!loading}}">正在加载中...</loading>

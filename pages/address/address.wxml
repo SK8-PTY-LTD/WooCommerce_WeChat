@@ -1,0 +1,20 @@
+<view class="main">
+  <view class="nav-header">
+    <view wx:for="{{navs}}" class="nav-cell {{item.alias==activeNav?'active':''}}" bindtap="changeList" data-alias="{{item.alias}}">{{item.text}}</view>
+  </view>
+
+  <scroll-view scroll-x="true">
+    <view class="form-box">
+
+      <form wx:if="{{activeNav==='billing'}}" bindsubmit="formSubmit">
+        <input wx:for="{{billing}}" name="{{index}}" value="{{item}}" placeholder="{{index}}" />
+        <button form-type="submit" class="update">保存</button>
+      </form>
+      <form wx:if="{{activeNav==='shipping'}}" bindsubmit="formSubmit">
+        <input wx:for="{{shipping}}" name="{{index}}" value="{{item}}" placeholder="{{index}}" />
+        <button form-type="submit" class="update">保存</button>
+      </form>
+
+    </view>
+  </scroll-view>
+</view>

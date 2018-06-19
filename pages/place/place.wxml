@@ -1,0 +1,19 @@
+<view class="main">
+    <navigator url="../address/address">
+        <view class="orders-no-address">编辑收货地址</view>
+    </navigator>
+
+    <view class="orders-box">
+        <view wx:for="{{orders}}" wx:key="index" class="orders-list">
+            <image class="orders-thumb" src="{{item.image}}"></image>
+            <view class="orders-pro-name">{{item.title}}</view>
+            <view class="orders-pro-price">￥{{item.price}}</view>
+            <view class="orders-count-num">×{{item.num}}</view>
+        </view>
+    </view>
+
+    <view class="orders-footer">
+        <view class="orders-footer-total">付款合计：￥{{total}}</view>
+        <view class="orders-footer-btn" bindtap="toPay">去付款</view>
+    </view>
+</view>

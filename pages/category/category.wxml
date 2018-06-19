@@ -1,0 +1,36 @@
+<view class="main">
+
+  <!--菜单-->
+  <view class="categroies">
+    <view wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" data-name="{{item.slug}}" bindtap="changeType" class="cate-list {{currCategory === item.id?'on':'off'}}">
+      {{item.name}}
+    </view>
+  </view>
+
+  <scroll-view class="categroy-right" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
+    <block wx:for="{{detail}}" wx:for-index wx:key="idx">
+      <scroll-view scroll-y="true" id="{{item.slug}}" class="cate-box">
+
+        <!--标题及价码等信息待排版-->
+        <text data-category='{{item.id}}' bindtap='prev'>←</text>
+        <text>---------------{{item.name}}---------------</text>
+        <text data-category='{{item.id}}' bindtap='next'>→</text>
+        <view class="product">
+          <view class="product-list" wx:for="{{item.detail}}" wx:key="index" data-information="{{val}}" wx:for-item="val" bindtap="goDetail">
+            <image class="good-thumb" src="{{val.images[0].src}}"></image>
+            <view class="classname">
+              <text>{{val.name}}</text>
+              <text wx:if="{{val.regular_price>val.price}}" class="regular_price">$ {{val.regular_price}}\n</text>
+              <text class="price">$ {{val.price}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+
+      <view>
+        <image class="prev_page" src="../../images/tar-topic.png">left</image>
+        <image class="next_page" src="../../images/tar-person.png">right</image>
+      </view>
+    </block>
+  </scroll-view>
+</view>

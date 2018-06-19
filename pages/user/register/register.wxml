@@ -1,0 +1,18 @@
+<view class="main">
+  <view class="nav-header">
+    <view wx:for="{{navs}}" class="nav-cell {{item.alias==activeNav?'active':''}}" bindtap="changeList" data-alias="{{item.alias}}">{{item.text}}</view>
+  </view>
+
+  <form  wx:if="{{activeNav==='register'}}" bindsubmit="register">
+    <input class="fm email" name="email" bindinput="checkEmail" placeholder="请输入电子邮箱" />
+    <input class="fm email" name="username" placeholder="请输入账号" />
+    <input type="text" password class="fm email" name="password" placeholder="请输入密码" />
+    <button form-type="submit" class="update">注册</button>
+  </form>
+  <form wx:if="{{activeNav==='login'}}" bindsubmit="login">
+    <input class="fm email" name="username" placeholder="请输入账号" />
+    <input type="text" password class="fm email" name="password" placeholder="请输入密码" />
+    <button form-type="submit" class="update">登录</button>
+  </form>
+
+</view>

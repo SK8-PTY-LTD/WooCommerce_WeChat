@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/logs/logs",
+    "pages/page/page",
+    "pages/about/about",
+    "pages/list/list",
+    "pages/category/category",
+    "pages/hot/hot",
+    "pages/pay/pay",
+    "pages/webpage/webpage",
+    "pages/comments/comments",
+    "pages/poster/poster",
+    "pages/cart/cart",
+    "pages/place/place",
+    "pages/address/address",
+    "pages/user/user",
+    "pages/orders/orders",
+    "pages/user/register/register",
+    "pages/user/user-info/user-info",
+    "pages/user/user-info/username-edit/username-edit",
+    "pages/product/product"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#118fff",
+    "navigationBarTitleText": "Likegou",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#9BABBA",
+    "selectedColor": "#495056",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tar-home.png",
+        "selectedIconPath": "images/tar-home-on.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "iconPath": "images/tar-topic.png",
+        "selectedIconPath": "images/tar-topic-on.png",
+        "text": "商品"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "images/tar-about.png",
+        "selectedIconPath": "images/tar-about-on.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/tar-person.png",
+        "selectedIconPath": "images/tar-person-on.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
+}
