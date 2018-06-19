@@ -15,6 +15,10 @@ Page({
       text: '运输地址',
       alias: 'shipping'
     }],
+    items: [
+      { name: 'paypal', value: 'paypal', checked: 'true' },
+      { name: 'stripe', value: 'stripe' }
+    ]
   },
 
   getData() {

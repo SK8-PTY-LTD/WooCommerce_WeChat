@@ -162,12 +162,10 @@ Page({
     });
   },
 
-  payOrder() {
-    var data =
-      {
-        "payment_method":
-        "order_id"
-      }
+  pay(e) {
+    wx.navigateTo({
+      url: '../payment/payment'
+    })
   },
 
   payOrder(e) {

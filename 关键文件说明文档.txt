@@ -1,0 +1,14 @@
+app.json 各个页面需要先添加至此
+app.js 程序在这里开始启动
+
+首页index
+商品 category -> 商品显示页面product
+购物车 cart   ->确认订单 place
+
+我的 user     ->个人信息编辑（点击头像） user-info
+			  ->订单 orders
+              ->地址管理address
+
+Utils    -> api.js 各个地址存放处
+         -> config.js 域名设置
+         -> wxRequest.js 封装成promise后的请求

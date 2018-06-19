@@ -17,6 +17,7 @@
     "pages/address/address",
     "pages/user/user",
     "pages/orders/orders",
+    "pages/payment/payment",
     "pages/user/register/register",
     "pages/user/user-info/user-info",
     "pages/user/user-info/username-edit/username-edit",

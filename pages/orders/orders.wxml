@@ -34,7 +34,7 @@
       </view>
     </view>
     <view class="cell-btn" hidden="{{order.isButtonShow}}">
-      <button class="btn-order btn-solid-red" wx:if="{{ status === 'pending' }}" bindtap="payOrder" data-orderID="{{id}}">去支付</button>
+      <button class="btn-order btn-solid-red" wx:if="{{ status === 'pending' }}" bindtap="pay" data-orderID="{{id}}">信用卡支付</button>
       <button class="btn-order btn-hollow-gray" wx:if="{{ status === 'pending' }}" bindtap="cancelOrder" data-orderID="{{id}}">取消订单</button>
       <button class="btn-order btn-hollow-gray" wx:if="{{ status === 'completed'}}" bindtap="drawbackOrder" data-orderID="{{id}}">申请退款</button>
       <button class="btn-order btn-solid-red" wx:if="{{status === 'processing' }}" bindtap="confirmOrder" data-orderID="{{id}}">确认收货</button>
