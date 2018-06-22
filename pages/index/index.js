@@ -295,14 +295,7 @@ Page({
   },
 
   goCategory: function (e) {
-
-    console.log("here")
-    console.log(e.currentTarget.dataset.information.id)
-
     getApp().presetIndex(e.currentTarget.dataset.information.id, e.currentTarget.dataset.information.slug)
-
-    console.log(getApp().globalData.currCategory)
-    console.log(getApp().globalData.toView)
     wx.switchTab({ url: '../category/category', })
   },
 

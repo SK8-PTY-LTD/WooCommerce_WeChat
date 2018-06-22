@@ -62,9 +62,6 @@ Page({
       return
     }
 
-    console.log("date=" + date)
-    console.log("this.data.date=" + this.data.date)
-
     if (date.length === 2 && this.data.date.length === 1)
       date = date + "/"
     else if (this.data.date.length === 4 && date.length === 3)
@@ -127,7 +124,7 @@ Page({
       return
     }
 
-    //支付方法写在这里，所有变量都在data内
+    //支付方法写在这里，所有需要的信息都在data内
 
   }
 })
