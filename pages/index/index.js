@@ -68,22 +68,6 @@ Page({
     }
   },
 
-  onPullDownRefresh: function () {
-    var self = this;
-    self.setData({
-      showerror: "none",
-      showallDisplay: "none",
-      displaySwiper: "none",
-      floatDisplay: "none",
-      isLastPage: false,
-      page: 0,
-      postsShowSwiperList: []
-    });
-    this.fetchTopFivePosts();
-  },
-
-  onReachBottom: function () { },
-
   onLoad: function (options) {
     var self = this;
     this.fetchTopFivePosts();
@@ -114,8 +98,6 @@ Page({
           displaySwiper: "block"
         });
 
-        console.log("here")
-
       }
       else
         self.setData({
@@ -145,13 +127,6 @@ Page({
     if (!data.search) data.search = ''
     if (data.page === 1)
       self.setData({ postsList: [] })
-
-    /*
-        wx.showLoading({
-          title: '正在加载',
-          mask: true
-        });
-        */
 
     var getPostsRequest = wxRequest.getRequest(Api.getPosts(data));
     getPostsRequest.then(response => {
@@ -242,7 +217,7 @@ Page({
     var url = e.currentTarget.dataset.url == null ? '' : e.currentTarget.dataset.url;
     var appid = e.currentTarget.dataset.appid == null ? '' : e.currentTarget.dataset.appid;
     var extraData = e.currentTarget.dataset.extraData == null ? '' : e.currentTarget.dataset.extraData;
-    if (redicttype == 'apppage') //跳转到小程序内部页面         
+    if (redicttype == 'apppage') //跳转到小程序内部页面
       wx.navigateTo({ url: url })
     else if (redicttype == 'webpage')//跳转到web-view内嵌的页面
     {
