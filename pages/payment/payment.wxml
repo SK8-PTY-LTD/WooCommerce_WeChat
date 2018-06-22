@@ -9,9 +9,11 @@
         </label>
       </radio-group>
 
-      <form wx:if="{{activeNav==='billing'}}" bindsubmit="formSubmit">
-        <input wx:for="{{billing}}" name="{{index}}" value="{{item}}" placeholder="{{index}}" />
-        <button form-type="submit" class="update">保存</button>
+      <form bindsubmit="formSubmit">
+        <input name="cardnumber" value='{{cardNumber}}' bindinput="checkCardNumber" placeholder="卡号" />
+        <input name="date" value='{{date}}' bindinput="checkDate" placeholder="过期日期" />
+        <input name="cvc" value='{{CVC}}' bindinput="checkCVC" placeholder="cvc" />
+        <button form-type="submit" class="update">支付</button>
       </form>
 
     </view>
