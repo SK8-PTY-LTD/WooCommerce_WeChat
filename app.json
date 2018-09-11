@@ -26,7 +26,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#118fff",
-    "navigationBarTitleText": "Likegou",
+    "navigationBarTitleText": "Test",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -66,5 +66,6 @@
     "connectSocket": 10000,
     "uploadFile": 10000,
     "downloadFile": 10000
-  }
+  },
+  "debug": true
 }

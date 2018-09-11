@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.8",
-	"appid": "wx25e848298827f1d9",
-	"projectname": "LiKeGou",
+	"projectname": "WooCommerce_Wechat",
+	"appid": "wx5220c69ae2c60eb4",
 	"condition": {
 		"search": {
 			"current": -1,
